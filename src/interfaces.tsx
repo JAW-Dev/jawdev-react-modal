@@ -23,10 +23,10 @@ interface OptionsType {
 }
 
 interface ElementPropsType {
-  content: any,
-  action: (e: React.MouseEvent, content: any) => void,
-  focus: (focusElement: HTMLElement) => void,
-  focusElement?: HTMLElement,
+  content?: any,
+  action?: (e: React.MouseEvent, content: any) => void,
+  focus?: (focusElement: HTMLElement) => void,
+  focusElement?: HTMLElement | Element | null,
   options?: OptionsType | undefined,
 }
 
