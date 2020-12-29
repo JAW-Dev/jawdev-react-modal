@@ -1,10 +1,11 @@
 {
   "name": "@jaw-dev/react-modal",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A simple React modal",
   "author": "jawittdesigns",
   "license": "MIT",
-  "repository": "jawittdesigns/jawdev-react-modal",
+  "repository": { "url": "jaw-dev.github.io/jawdev-react-modal" },
+  "homepage": "https://jaw-dev.github.io/jawdev-react-modal/",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.tsx",
