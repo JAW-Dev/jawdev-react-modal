@@ -1,5 +1,5 @@
 interface OptionsType {
-  children?: React.ReactNode | string,
+  children?: any,
   label?: string,
   content?: any,
   delay?: number,
