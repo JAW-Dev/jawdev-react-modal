@@ -1,12 +1,12 @@
 interface OptionsType {
   children?: React.ReactNode | string,
   label?: string,
-  content?: string | object,
+  content?: any,
   delay?: number,
   svgprops?: object,
-  action?: (e: React.MouseEvent, content: any) => void | object,
-  focus?: (focusElement: HTMLElement) => void | object,
-  focusElement?: HTMLElement,
+  action?: any,
+  focus?: any,
+  focusElement?: any,
   modalCloseImage?: any,
   modalCloseLabel?: string,
   modalCloseStyles?: object,
@@ -24,9 +24,9 @@ interface OptionsType {
 
 interface ElementPropsType {
   content?: any,
-  action?: (e: React.MouseEvent, content: any) => void,
-  focus?: (focusElement: HTMLElement) => void,
-  focusElement?: HTMLElement | Element | null,
+  action?: any,
+  focus?: any,
+  focusElement?: any,
   options?: OptionsType | undefined,
 }
 
