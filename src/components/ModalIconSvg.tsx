@@ -2,16 +2,22 @@
 import React from 'react';
 import styled from 'styled-components';
 
-// Import styles
-import { getModalIconSvgStyles } from '../modules/styles';
-
 // Import modules
 import cssObjectToStyledComponent from './../modules/cssObjectToStyledComponent';
+import getModalStyles from './../modules/getModalStyles';
 
 // Import interfaces
 import './../interfaces';
 
-const StyledModalIconSvg = styled.svg<StylesType>`${props => cssObjectToStyledComponent(getModalIconSvgStyles(props.overwriteStyles))}`;
+const defaultStyles = {
+  transition: 'fill 0.2s ease',
+  ':hover': {
+    fill: 'rgb(230, 230, 230)',
+    transition: 'fill 0.2s ease'
+  }
+};
+
+const StyledModalIconSvg = styled.svg<StylesType>`${props => cssObjectToStyledComponent(getModalStyles(props.overwriteStyles, defaultStyles))}`;
 
 const ModalIconSvg: React.FC<ElementPropsType> = ({ options }) => {
   const modalIconSvgStyles: object | any = options?.modalIconSvgStyles!;

@@ -3,14 +3,27 @@ import React from 'react';
 import styled from 'styled-components';
 
 // Import modules
-import { getModalCloseStyles } from './../modules/styles';
+import getModalStyles from './../modules/getModalStyles';
 import modalCloseActions from '../modules/modalCloseActions';
 import cssObjectToStyledComponent from './../modules/cssObjectToStyledComponent';
 
 // Import interfaces
 import './../interfaces';
 
-const StyledModalClose = styled.button<StylesType>`${props => cssObjectToStyledComponent(getModalCloseStyles(props.overwriteStyles))}`;
+const defaultStyles = {
+  position: 'absolute',
+  top: '0.25rem',
+  right: '0.25rem',
+  padding: '0',
+  backgroundColor: 'transparent',
+  border: 'none',
+  outline: 'none',
+  ':hover': {
+    cursor: 'pointer'
+  }
+};
+
+const StyledModalClose = styled.button<StylesType>`${props => cssObjectToStyledComponent(getModalStyles(props.overwriteStyles, defaultStyles))}`;
 
 const ModalClose: React.FC<ElementPropsType> = ({ children, content, action, focus, focusElement, options }) => {
   const modalCloseStyles: object | any = options?.modalCloseStyles!;

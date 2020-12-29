@@ -2,13 +2,17 @@
 import React from 'react';
 import styled from 'styled-components';
 
-// Import module
-import { getModalIconStyles } from '../modules/styles';
-
-// Import moduels
+// Import modules
 import cssObjectToStyledComponent from './../modules/cssObjectToStyledComponent';
+import getModalStyles from './../modules/getModalStyles';
 
-const StyledModalIcon = styled.div<StylesType>`${props => cssObjectToStyledComponent(getModalIconStyles(props.overwriteStyles))}`;
+const defaultStyles = {
+  ':hover': {
+    cursor: 'pointer'
+  }
+};
+
+const StyledModalIcon = styled.div<StylesType>`${props => cssObjectToStyledComponent(getModalStyles(props.overwriteStyles, defaultStyles))}`;
 
 const ModalIcon = ({ children, options }) => {
   const modalIconStyles: object | any = options?.modalIconStyles!;

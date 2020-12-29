@@ -1,5 +1,5 @@
 // Import modules
-import parseObjectArgs from '../parseObjectArgs';
+import parseObjectArgs from './parseObjectArgs';
 
 const getModalWrapStyles = (modalWrapStyles: object, delay: number): object => {
   const defaultStyles = {

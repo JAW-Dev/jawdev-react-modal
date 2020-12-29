@@ -13,14 +13,14 @@ import cssObjectToStyledComponent from './modules/cssObjectToStyledComponent';
 import ModalElement from './components/ModalElement';
 
 // Import styles
-import { getModalButtonStyles } from './modules/styles/';
+import getModalStyles from './modules/getModalStyles';
 
 // Import interfaces
 import './interfaces';
 
 const StyledModalButton = styled.button<StylesType>`
   ${props => {
-    return cssObjectToStyledComponent(getModalButtonStyles(props.overwriteStyles));
+    return cssObjectToStyledComponent(getModalStyles(props.overwriteStyles));
   }}
 `;
 

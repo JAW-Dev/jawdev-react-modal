@@ -2,11 +2,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-// Import styles
-import { getModalWrapStyles } from '../modules/styles';
-
 // Import modules
 import cssObjectToStyledComponent from './../modules/cssObjectToStyledComponent';
+import getModalWrapStyles from '../modules/getModalWrapStyles';
 
 // Import interfaces
 import './../interfaces';

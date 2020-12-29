@@ -1,10 +1,12 @@
 {
   "name": "@jaw-dev/react-modal",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A simple React modal",
   "author": "jawittdesigns",
   "license": "MIT",
-  "repository": { "url": "jaw-dev.github.io/jawdev-react-modal" },
+  "repository": {
+    "url": "jaw-dev.github.io/jawdev-react-modal"
+  },
   "homepage": "https://jaw-dev.github.io/jawdev-react-modal/",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
@@ -66,7 +68,6 @@
   ],
   "dependencies": {
     "@jaw-dev/react-demo-components": "^1.0.3",
-    "radium": "^0.26.1",
     "styled-components": "^5.2.1"
   }
 }
