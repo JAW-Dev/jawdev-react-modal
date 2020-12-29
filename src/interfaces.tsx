@@ -33,7 +33,7 @@ interface ElementPropsType {
 interface IndexPropsType {
   content?: string,
   modalbuttonStyles?: object,
-  children?: React.ReactNode | string,
+  children?: any,
   options?: OptionsType | undefined,
 }
 
