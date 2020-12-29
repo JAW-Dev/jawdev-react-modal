@@ -12,6 +12,7 @@ import {
   DMPTable,
   DMPGHLink,
 } from '@jaw-dev/react-demo-components';
+import styled from 'styled-components';
 
 // Import package.json
 import pkg from './../package.json';
@@ -20,16 +21,27 @@ import pkg from './../package.json';
 // Import components
 import Modal from 'jawdev-react-modal'
 
+const StyledTestLabel = styled.label`
+  display: block;
+  margin-bottom: 0.25rem;
+`;
+
+const StyledTestInput = styled.input`
+  width: 300px;
+  padding: 0.25rem;
+`;
+
 const ComponentContent = () => {
   return (
     <>
+      <h2>Example Modal</h2>
       <p>
-        <label>Name</label>
-        <input type="text" defaultValue='' />
+        <StyledTestLabel>Name</StyledTestLabel>
+        <StyledTestInput type="text" defaultValue='' />
       </p>
       <p>
-      <label>Email</label>
-      <input type="email" defaultValue='' />
+      <StyledTestLabel>Email</StyledTestLabel>
+      <StyledTestInput type="email" defaultValue='' />
       </p>
       <p>
         <button onClick={(e) => { e.stopPropagation() }}>Submit</button>
@@ -120,7 +132,7 @@ const App = () => {
     <DMPWrap>
       <DMPHeader>
         <DMPLogo logo="@JAW-Dev React Modal"/>
-        <DMPGHLink link='https://google.com'/>
+        <DMPGHLink link='https://github.com/JAW-Dev/jawdev-react-modal'/>
       </DMPHeader>
       <DMPContent>
         <DMPBlurb>
