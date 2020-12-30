@@ -1,6 +1,6 @@
 {
   "name": "@jaw-dev/react-modal",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A simple React modal",
   "author": "jawittdesigns",
   "license": "MIT",
@@ -18,7 +18,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "microbundle-crl --no-compress --format modern,cjs",
+    "build": "microbundle-crl --format modern,cjs",
     "start": "microbundle-crl watch --no-compress --format modern,cjs",
     "prepare": "run-s build",
     "test": "run-s test:unit test:lint test:build",

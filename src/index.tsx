@@ -8,12 +8,10 @@ import { ACTIONS, modalReducer } from './modules/modalReducer';
 import modalCloseFocus from './modules/modalCloseFocus';
 import modalCloseEsc from './modules/modalCloseEsc';
 import cssObjectToStyledComponent from './modules/cssObjectToStyledComponent';
+import getModalStyles from './modules/getModalStyles';
 
 // Import components
 import ModalElement from './components/ModalElement';
-
-// Import styles
-import getModalStyles from './modules/getModalStyles';
 
 // Import interfaces
 import './interfaces';
@@ -28,10 +26,10 @@ const Modal: React.FC<IndexPropsType> = ({ content, modalbuttonStyles, children,
   // Setup the options
   const rootContent: any = content || children;
   const rootOptions: OptionsType = options!;
-  const delayDefault: number = 200;
+  const delayDefault: string = '300';
 
   // Get the Modal delay
-  const delay: string = rootOptions.delay?.toString() || delayDefault.toString();
+  const delay: string = rootOptions.delay.toString() || delayDefault;
 
   if (!options?.delay) {
     options!.delay = delayDefault;

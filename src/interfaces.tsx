@@ -2,7 +2,7 @@ interface OptionsType {
   children?: any,
   label?: string,
   content?: any,
-  delay?: number,
+  delay?: any,
   svgprops?: object,
   action?: any,
   focus?: any,
