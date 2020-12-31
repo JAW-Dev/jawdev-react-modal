@@ -1,6 +1,6 @@
 {
   "name": "@jaw-dev/react-modal",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A simple React modal",
   "author": "jawittdesigns",
   "license": "MIT",
@@ -30,7 +30,9 @@
     "deploy": "gh-pages -d example/build"
   },
   "peerDependencies": {
-    "react": "^16.0.0"
+    "react": "^16.0.0",
+    "react-dom": "^16.13.1",
+    "styled-components": "^5.2.1"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -61,13 +63,13 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "^3.4.1",
+    "styled-components": "^5.2.1",
     "typescript": "^3.7.5"
   },
   "files": [
     "dist"
   ],
   "dependencies": {
-    "@jaw-dev/react-demo-components": "^1.0.3",
-    "styled-components": "^5.2.1"
+    "@jaw-dev/react-demo-components": "^1.0.3"
   }
 }
