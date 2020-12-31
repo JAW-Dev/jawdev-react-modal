@@ -26,10 +26,10 @@ const Modal: React.FC<IndexPropsType> = ({ content, modalbuttonStyles, children,
   // Setup the options
   const rootContent: any = content || children;
   const rootOptions: OptionsType = options!;
-  const delayDefault: string = '300';
+  const delayDefault: number = 300;
 
   // Get the Modal delay
-  const delay: string = rootOptions.delay.toString() || delayDefault;
+  const delay: string = rootOptions.delay || delayDefault;
 
   if (!options?.delay) {
     options!.delay = delayDefault;
