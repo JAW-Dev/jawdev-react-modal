@@ -40,8 +40,8 @@ const ComponentContent = () => {
         <StyledTestInput type="text" defaultValue='' />
       </p>
       <p>
-      <StyledTestLabel>Email</StyledTestLabel>
-      <StyledTestInput type="email" defaultValue='' />
+        <StyledTestLabel>Email</StyledTestLabel>
+        <StyledTestInput type="email" defaultValue='' />
       </p>
       <p>
         <button onClick={(e) => { e.stopPropagation() }}>Submit</button>
@@ -131,26 +131,26 @@ const App = () => {
   return (
     <DMPWrap>
       <DMPHeader>
-        <DMPLogo logo="@JAW-Dev React Modal"/>
-        <DMPGHLink link='https://github.com/JAW-Dev/jawdev-react-modal'/>
+        <DMPLogo logo="@JAW-Dev React Modal" />
+        <DMPGHLink link='https://github.com/JAW-Dev/jawdev-react-modal' />
       </DMPHeader>
       <DMPContent>
         <DMPBlurb>
           <p>A simple React modal component</p>
         </DMPBlurb>
-        <DMPInstall name={pkg.name}/>
-          <DMPExample code={example}/>
+        <DMPInstall name={pkg.name} />
+        <DMPExample code={example} />
         <DMPBlurb>
           <Modal options={options} modalbuttonStyles={buttonStyles}><ComponentContent /></Modal>
         </DMPBlurb>
-        <DMPTable table={props} name={'Props'}/>
-        <DMPTable table={optionsTable} name={'Options'}/>
+        <DMPTable table={props} name={'Props'} />
+        <DMPTable table={optionsTable} name={'Options'} />
         <DMPBlurb>
           <p>* Style Components is used for generating the CSS to allow for the use of CSS pseudo selectors. To overwrite a component's CSS, create a object with the CSS you want to overwrite.</p>
         </DMPBlurb>
-        <DMPExample code={cssExample} label="CSS Overwrite Example"/>
+        <DMPExample code={cssExample} label="CSS Overwrite Example" />
       </DMPContent>
-      <DMPFooter/>
+      <DMPFooter />
     </DMPWrap>
   );
 }
