@@ -1,6 +1,6 @@
 // Import packages
 import React, { useState, useEffect } from 'react';
-import ReactDom from 'react-dom';
+import { createPortal } from 'react-dom';
 
 // Import modules
 import modalCreateRoot from '../modules/modalCreateRoot';
@@ -44,7 +44,7 @@ const ModalElement: React.FC<ElementPropsType> = ({ content, action, focus, opti
   modalFocusElement();
   modalKeepFocus();
 
-  return ReactDom.createPortal(
+  return createPortal(
     <ModalWrap options={options}>
       <ModalOverlay action={action} focus={focus} focusElement={previousFocusedElement} options={options} />
       <ModalContent options={options}>
