@@ -34,7 +34,7 @@ interface IndexPropsType {
   content?: string,
   modalbuttonStyles?: object,
   children?: any,
-  options?: OptionsType | undefined,
+  options?: OptionsType,
 }
 
 interface ActionType {
@@ -56,7 +56,7 @@ interface UpdateType {
   state: any,
   dispatch: (param: DispatchType) => void,
   setModalContent: React.Dispatch<React.SetStateAction<string>>,
-  delay: string
+  delay: any
 }
 
 interface ActionParamType {
@@ -68,5 +68,5 @@ interface ActionParamType {
 
 interface StylesType {
   overwriteStyles: object
-  delaySpeed?: number | any
+  delaySpeed?: any
 }

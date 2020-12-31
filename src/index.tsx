@@ -24,12 +24,13 @@ const StyledModalButton = styled.button<StylesType>`
 
 const Modal: React.FC<IndexPropsType> = ({ content, modalbuttonStyles, children, options }) => {
   // Setup the options
+  options = options === undefined ? {} : options!;
   const rootContent: any = content || children;
-  const rootOptions: OptionsType = options!;
+  const rootOptions: OptionsType = options;
   const delayDefault: number = 300;
 
   // Get the Modal delay
-  const delay: string = rootOptions.delay || delayDefault;
+  const delay: string = rootOptions === undefined ? delayDefault : rootOptions.delay;
 
   if (!options?.delay) {
     options!.delay = delayDefault;
