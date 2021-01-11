@@ -2,6 +2,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
+// Import providers
+import { useOptions } from './../providers/OptionsProvider';
+
 // Import modules
 import getModalStyles from './../modules/getModalStyles';
 import modalCloseActions from '../modules/modalCloseActions';
@@ -25,14 +28,15 @@ const defaultStyles = {
 
 const StyledModalClose = styled.button<StylesType>`${props => cssObjectToStyledComponent(getModalStyles(props.overwriteStyles, defaultStyles))}`;
 
-const ModalClose: React.FC<ElementPropsType> = ({ children, content, action, focus, focusElement, options }) => {
+const ModalClose: React.FC<ElementPropsType> = ({ children, focusElement }) => {
+  const options = useOptions();
   const modalCloseStyles: object | any = options?.modalCloseStyles!;
 
   return (
     <StyledModalClose
       className='modal__close'
       overwriteStyles={modalCloseStyles!}
-      onClick={(e: React.MouseEvent): void => modalCloseActions(action, focus, e, focusElement!, content)}
+      onClick={(e: React.MouseEvent): void => modalCloseActions(options!.action, options!.focus, e, focusElement!, '')}
     >
       {children}
     </StyledModalClose>

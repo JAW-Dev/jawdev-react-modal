@@ -2,6 +2,9 @@
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 
+// Import providers
+import { useOptions } from './../providers/OptionsProvider';
+
 // Import modules
 import modalCreateRoot from '../modules/modalCreateRoot';
 import modalFocusElement from '../modules/modalFocusElement';
@@ -19,14 +22,15 @@ import ModalClose from './ModalClose';
 // Import interfaces
 import './../interfaces';
 
-const ModalElement: React.FC<ElementPropsType> = ({ content, action, focus, options }) => {
+const ModalElement: React.FC<ElementPropsType> = () => {
   modalCreateRoot();
 
+  const options = useOptions();
   const [newContent, setNewContent] = useState<string | null>('');
 
   useEffect(() => {
-    setNewContent(content);
-  }, [content]);
+    setNewContent(options.modalContent);
+  }, [options.modalContent]);
 
   if (!newContent) {
     return null;
@@ -45,16 +49,16 @@ const ModalElement: React.FC<ElementPropsType> = ({ content, action, focus, opti
   modalKeepFocus();
 
   return createPortal(
-    <ModalWrap options={options}>
-      <ModalOverlay action={action} focus={focus} focusElement={previousFocusedElement} options={options} />
-      <ModalContent options={options}>
-        <ModalClose action={action} focus={focus} focusElement={previousFocusedElement} options={options}>
-          <ModalIcon options={options}>
+    <ModalWrap>
+      <ModalOverlay focusElement={previousFocusedElement} />
+      <ModalContent>
+        <ModalClose focusElement={previousFocusedElement}>
+          <ModalIcon>
             <SetModalCloseImage {...setSvgprops} />
-            <ModalIconLabel options={options}>{setModalCloseLabel}</ModalIconLabel>
+            <ModalIconLabel>{setModalCloseLabel}</ModalIconLabel>
           </ModalIcon>
         </ModalClose>
-        {content}
+        {options.modalContent}
       </ModalContent>
     </ModalWrap>,
     document.getElementById('modal-root')!

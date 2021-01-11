@@ -2,6 +2,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
+// Import providers
+import { useOptions } from './../providers/OptionsProvider';
+
 // Import modules
 import modalCloseActions from '../modules/modalCloseActions';
 import cssObjectToStyledComponent from './../modules/cssObjectToStyledComponent';
@@ -21,15 +24,15 @@ const defaultStyles = {
 
 const StyledModalOverlay = styled.div<StylesType>`${props => cssObjectToStyledComponent(getModalStyles(props.overwriteStyles, defaultStyles))}`;
 
-const ModalOverlay: React.FC<ElementPropsType> = ({ action, focus, focusElement, options }) => {
+const ModalOverlay: React.FC<ElementPropsType> = ({ focusElement }) => {
+  const options = useOptions();
   const modalOverlayStyles: object | any = options?.modalOverlayStyles!;
-  const content: any = options?.content!;
 
   return (
     <StyledModalOverlay
       className='modal__overlay'
       overwriteStyles={modalOverlayStyles!}
-      onClick={(e: React.MouseEvent): void => modalCloseActions(action, focus, e, focusElement!, content)}
+      onClick={(e: React.MouseEvent): void => modalCloseActions(options!.action, options!.focus, e, focusElement!, '')}
     />
   );
 };

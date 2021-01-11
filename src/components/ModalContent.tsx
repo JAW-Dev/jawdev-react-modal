@@ -2,6 +2,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
+// Import providers
+import { useOptions } from './../providers/OptionsProvider';
+
 // Import modules
 import cssObjectToStyledComponent from './../modules/cssObjectToStyledComponent';
 import getModalStyles from './../modules/getModalStyles';
@@ -18,7 +21,8 @@ const defaultStyles = {
 
 const StyledModalContent = styled.div<StylesType>`${props => cssObjectToStyledComponent(getModalStyles(props.overwriteStyles, defaultStyles))}`;
 
-const ModalContent: React.FC<ElementPropsType> = ({ children, options }) => {
+const ModalContent: React.FC<ElementPropsType> = ({ children }) => {
+  const options = useOptions();
   const modalContentStyles: object | any = options?.modalContentStyles!;
 
   return (

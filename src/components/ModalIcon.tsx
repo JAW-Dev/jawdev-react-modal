@@ -2,6 +2,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
+// Import providers
+import { useOptions } from './../providers/OptionsProvider';
+
 // Import modules
 import cssObjectToStyledComponent from './../modules/cssObjectToStyledComponent';
 import getModalStyles from './../modules/getModalStyles';
@@ -14,7 +17,8 @@ const defaultStyles = {
 
 const StyledModalIcon = styled.div<StylesType>`${props => cssObjectToStyledComponent(getModalStyles(props.overwriteStyles, defaultStyles))}`;
 
-const ModalIcon = ({ children, options }) => {
+const ModalIcon = ({ children }) => {
+  const options = useOptions();
   const modalIconStyles: object | any = options?.modalIconStyles!;
 
   return (

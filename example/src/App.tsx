@@ -125,7 +125,8 @@ const App = () => {
   }
 
   const options = {
-    label: 'Open Modal'
+    label: 'Open Modal',
+    modalbuttonStyles: buttonStyles
   }
 
   return (
