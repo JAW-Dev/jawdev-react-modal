@@ -9,6 +9,7 @@ import { useOptions } from './../providers/OptionsProvider';
 import modalCreateRoot from '../modules/modalCreateRoot';
 import modalFocusElement from '../modules/modalFocusElement';
 import modalKeepFocus from '../modules/modalKeepFocus';
+import modalFadeIn from '../modules/modalFadeIn';
 
 // Import components
 import ModalWrap from './ModalWrap';
@@ -26,11 +27,18 @@ const ModalElement: React.FC<ElementPropsType> = () => {
   modalCreateRoot();
 
   const options = useOptions();
-  const [newContent, setNewContent] = useState<string | null>('');
+  const [newContent, setNewContent] = useState<string | null>(options.modalContent);
 
-  useEffect(() => {
-    setNewContent(options.modalContent);
-  }, [options.modalContent]);
+  if (options.openOnLoad) {
+    useEffect(() => {
+      setNewContent(options.modalContent);
+    });
+    modalFadeIn('.modal__wrap', options.delay);
+  } else {
+    useEffect(() => {
+      setNewContent(options.modalContent);
+    }, [options.modalContent]);
+  }
 
   if (!newContent) {
     return null;

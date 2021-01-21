@@ -32,12 +32,18 @@ const ModalClose: React.FC<ElementPropsType> = ({ children, focusElement }) => {
   const options = useOptions();
   const modalCloseStyles: object | any = options?.modalCloseStyles!;
 
+  const clickHandler = (e: React.MouseEvent): void => {
+    if (options.closeOnButtonClick) {
+      modalCloseActions(options!.action, options!.focus, e, focusElement!, '');
+    }
+  };
+
+  if (options.showCloseButton === false) {
+    return null;
+  }
+
   return (
-    <StyledModalClose
-      className='modal__close'
-      overwriteStyles={modalCloseStyles!}
-      onClick={(e: React.MouseEvent): void => modalCloseActions(options!.action, options!.focus, e, focusElement!, '')}
-    >
+    <StyledModalClose className='modal__close' overwriteStyles={modalCloseStyles!} onClick={clickHandler}>
       {children}
     </StyledModalClose>
   );

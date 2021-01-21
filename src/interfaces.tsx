@@ -1,40 +1,11 @@
-interface OptionsType {
-  children?: any,
-  label?: string,
-  content?: any,
-  delay?: any,
-  svgprops?: object,
-  action?: any,
-  focus?: any,
-  focusElement?: any,
-  modalCloseImage?: any,
-  modalCloseLabel?: string,
-  modalCloseStyles?: object,
-  modalContentStyles?: object,
-  modalEnterActiveStyles?: object,
-  modalEnterStyles?: object,
-  modalExitActiveStyles?: object,
-  modalExitStyles?: object,
-  modalIconLabelStyles?: object,
-  modalIconStyles?: object,
-  modalIconSvgStyles?: object,
-  modalOverlayStyles?: object,
-  modalWrapStyles?: object
-}
-
 interface ElementPropsType {
-  content?: any,
-  action?: any,
-  focus?: any,
   focusElement?: any,
-  options?: OptionsType | undefined,
+  options?: any | undefined,
 }
 
 interface IndexPropsType {
-  content?: string,
-  modalbuttonStyles?: object,
   children?: any,
-  options?: OptionsType,
+  options?: any | undefined,
 }
 
 interface ActionType {

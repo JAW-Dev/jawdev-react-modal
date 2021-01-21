@@ -12,11 +12,18 @@ interface initOptionsProps {
 export const OptionsContext = createContext({} as OptionsContextProps);
 
 export const OptionsProvider: React.FC<initOptionsProps> = ({ options, children }) => {
-  const setOptions: OptionsContextProps = options!;
+  const defaults = {
+    label: 'Open',
+    delay: 300,
+    closeOnOverlayClick: true,
+    closeOnButtonClick: true,
+    openOnLoad: false,
+    showButton: true,
+    showCloseButton: true,
+    modalContent: ''
+  };
 
-  // Setup defaults
-  setOptions!.delay = setOptions!.delay || 500;
-  setOptions!.label = setOptions!.label || 'Open';
+  const setOptions: OptionsContextProps = Object.assign({}, defaults, options!);
 
   return (
     <OptionsContext.Provider value={setOptions!}>

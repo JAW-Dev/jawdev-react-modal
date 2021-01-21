@@ -28,11 +28,17 @@ const ModalOverlay: React.FC<ElementPropsType> = ({ focusElement }) => {
   const options = useOptions();
   const modalOverlayStyles: object | any = options?.modalOverlayStyles!;
 
+  const clickhandler = (e: React.MouseEvent): void => {
+    if (options.closeOnOverlayClick) {
+      modalCloseActions(options!.action, options!.focus, e, focusElement!, '');
+    }
+  };
+
   return (
     <StyledModalOverlay
       className='modal__overlay'
       overwriteStyles={modalOverlayStyles!}
-      onClick={(e: React.MouseEvent): void => modalCloseActions(options!.action, options!.focus, e, focusElement!, '')}
+      onClick={clickhandler}
     />
   );
 };

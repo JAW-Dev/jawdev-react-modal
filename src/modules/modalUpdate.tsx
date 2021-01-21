@@ -17,7 +17,7 @@ const modalUpdate = (e: React.MouseEvent, content: any, { ACTIONS, state, dispat
   });
 
   if (update.action === ACTIONS.RESET_CONTENT) {
-    modalFadeOut(wrap);
+    modalFadeOut(wrap, delay);
     setTimeout(() => {
       setModalContent(update.payload);
       return state;

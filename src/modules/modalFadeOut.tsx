@@ -1,4 +1,4 @@
-const modalFadeOut = (wrap: string): void => {
+const modalFadeOut = (wrap: string, delay: number): void => {
   const modalWrap = document.querySelector(wrap);
 
   if (modalWrap) {
@@ -6,6 +6,10 @@ const modalFadeOut = (wrap: string): void => {
     modalWrap.classList.add('modal-exit');
     modalWrap.classList.remove('modal-exit');
     modalWrap.classList.add('modal-exit-active');
+
+    setTimeout(() => {
+      modalWrap.classList.remove('modal-exit-active');
+    }, Number(delay));
   }
 };
 

@@ -28,30 +28,34 @@ const StyledModalButton = styled.button<StylesType>`
 const ModalButton: React.FC<ElementPropsType> = () => {
   const options = useOptions();
   const modalbuttonStyles: object | any = options?.modalbuttonStyles!;
-  const delay = options!.delay;
+  const delay = options.delay;
   const [state, dispatch] = useReducer<any | any>(modalReducer, '');
   const [modalContent, setModalContent] = useState<string | ''>('');
   const updateContentOptions: UpdateType = { ACTIONS, state, dispatch, setModalContent, delay };
   const updateContent: (e: React.MouseEvent, content: any) => void = (e: React.MouseEvent, content: any) => modalUpdate(e, content, updateContentOptions);
 
   options!.action = updateContent;
-  options!.modalContent = modalContent;
+  options.modalContent = options.openOnLoad ? options.content : modalContent;
 
   const refocus = (focusElement: HTMLElement) => modalCloseFocus(focusElement);
   options!.focus = refocus;
 
   modalCloseEsc(updateContent, refocus, document.activeElement as HTMLElement);
 
-  return (
-    <StyledModalButton
-      className='modal__button'
-      overwriteStyles={modalbuttonStyles!}
-      onClick={(e: React.MouseEvent): void => updateContent(e, options.content)}
-    >
-      {options.label}
-      <ModalElement />
-    </StyledModalButton>
-  );
+  if (options.showButton) {
+    return (
+      <StyledModalButton
+        className='modal__button'
+        overwriteStyles={modalbuttonStyles!}
+        onClick={(e: React.MouseEvent): void => updateContent(e, options.content)}
+      >
+        {options.label}
+        <ModalElement />
+      </StyledModalButton>
+    );
+  }
+
+  return <ModalElement />;
 };
 
 export default ModalButton;

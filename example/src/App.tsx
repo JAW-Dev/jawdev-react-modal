@@ -50,34 +50,21 @@ const ComponentContent = () => {
   )
 }
 
-const props = `
-| Prop Name         | Description                                                              | Type   | default |
-| ----------------- | ------------------------------------------------------------------------ | ------ | ------- |
-| content           | You can use a string for the modal content instead of an React component | string | ''      |
-| modalbuttonStyles | Overwrite the default button styles                                      | object | {}      |
-| options           | The modal options                                                        | object | {}      |
-`;
-
 const optionsTable = `
-| Option                 | Description                                                                                                            | Type    | default     |
-| ---------------------- | ---------------------------------------------------------------------------------------------------------------------- | ------- | ----------- |
-| label                  | The text in the main modal button                                                                                      | string  | 'Open'      |
-| content                | Use a string for the modal content. This is can be used in place of the 'content' prop                                 | string  | ''          |
-| delay                  | By defaul the modal opens/closes with a fade in/out. The delay id how long the fade in/out takes                       | integer | 200         |
-| svgprops               | By default the modal close icon is a SVG. This option will allow you to set the SVG attributes such as with and height | object  | {}          |
-| modalCloseImage        | Overwrite the default Close Icon image                                                                                 | string  | default svg |
-| modalCloseLabel        | Overwrite the default Close Label (hidden for accesiblility be default)                                                | string  | 'Close'     |
-| modalCloseStyles       | Overwrite the default CSS for the Close Icon and Label wrapper*                                                       | object  | {}          |
-| modalContentStyles     | Overwrite the default CSS for the Content element*                                                                    | object  | {}          |
-| modalEnterActiveStyles | Overwrite the default CSS for the styles used in opening the modal*                                                   | object  | {}          |
-| modalEnterStyles       | Overwrite the default CSS for the styles used in opening the modal*                                                   | object  | {}          |
-| modalExitActiveStyles  | Overwrite the default CSS for the styles used in closing the modal*                                                   | object  | {}          |
-| modalExitStyles        | Overwrite the default CSS for the styles used in closing the modal*                                                   | object  | {}          |
-| modalIconLabelStyles   | Overwrite the default CSS for the Close Icon Label*                                                                   | object  | {}          |
-| modalIconStyles        | Overwrite the default CSS for the Close Icon*                                                                         | object  | {}          |
-| modalIconSvgStyles     | Overwrite the default CSS for the default Close Icon SVG*                                                             | object  | {}          |
-| modalOverlayStyles     | Overwrite the default CSS for the Overlay*                                                                            | object  | {}          |
-| modalWrapStyles        | Overwrite the default CSS for the Modal Wrap*                                                                         | object  | {}          |
+| Option              | Description                                                                                                            | Type    | default     |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------- | ------- | ----------- |
+| label               | The text in the main modal button                                                                                      | string  | 'Open'      |
+| delay               | By defaul the modal opens/closes with a fade in/out. The delay id how long the fade in/out takes                       | integer | 200         |
+| content             | You can use a string for the modal content instead of an React component                                               | string  | ''          |
+| svgprops            | By default the modal close icon is a SVG. This option will allow you to set the SVG attributes such as with and height | object  | {}          |
+| modalCloseImage     | Overwrite the default Close Icon image                                                                                 | string  | default svg |
+| modalCloseLabel     | Overwrite the default Close Label (hidden for accesiblility be default)                                                | string  | 'Close'     |
+| overlayCloseOnClick | Close the modal on overlay click                                                                                       | boolean | true        |
+| overlayCloseOnClick | Close the modal on overlay click                                                                                       | boolean | true        |
+| closeOnButtonClick  | Close the modal on close button click                                                                                  | boolean | true        |
+| openOnLoad          | Open the Modal on page load                                                                                            | boolean | false       |
+| showButton          | Show the modal open button                                                                                             | boolean | true        |
+| showCloseButton     | Show the modal close button                                                                                            | boolean | true        |
 `;
 
 const example = `
@@ -99,18 +86,6 @@ const example = `
   }
 `;
 
-const cssExample = `
-  const newModalCloseStyles = {
-    top: '1rem',
-    right: '1rem',
-    padding: '1rem',
-    backgroundColor: 'black',
-    ':hover': {
-      cursor: 'grab'
-    }
-  };
-`;
-
 const App = () => {
   const buttonStyles = {
     outline: 'none',
@@ -126,6 +101,9 @@ const App = () => {
 
   const options = {
     label: 'Open Modal',
+    delay: 300,
+    closeOnOverlayClick: true,
+    closeOnButtonClick: true,
     modalbuttonStyles: buttonStyles
   }
 
@@ -142,14 +120,9 @@ const App = () => {
         <DMPInstall name={pkg.name} />
         <DMPExample code={example} />
         <DMPBlurb>
-          <Modal options={options} modalbuttonStyles={buttonStyles}><ComponentContent /></Modal>
+          <Modal options={options}><ComponentContent /></Modal>
         </DMPBlurb>
-        <DMPTable table={props} name={'Props'} />
         <DMPTable table={optionsTable} name={'Options'} />
-        <DMPBlurb>
-          <p>* Style Components is used for generating the CSS to allow for the use of CSS pseudo selectors. To overwrite a component's CSS, create a object with the CSS you want to overwrite.</p>
-        </DMPBlurb>
-        <DMPExample code={cssExample} label="CSS Overwrite Example" />
       </DMPContent>
       <DMPFooter />
     </DMPWrap>
